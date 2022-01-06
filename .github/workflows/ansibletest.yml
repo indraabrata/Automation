@@ -1,0 +1,19 @@
+name: Ansible-Test
+
+on: push
+
+jobs:
+  ansible-test:
+    name: test ansible github action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          
+      - name: install test dependencies.
+        run: pip3 install yamllint ansible-lint
